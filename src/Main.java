@@ -1,37 +1,24 @@
 public class Main {
     public static void main(String[] args) {
-        DoubleLinkedListElement start, end;
-        start = new DoubleLinkedListElement("Start");
-        end = new DoubleLinkedListElement("End");
 
-        start.next = end;
-        start.prev = end;
-        end.prev = start;
-        end.next=start;
+        // create an object to hold my list
+        DoubleLinkedList myList1 = new DoubleLinkedList();
 
+        // display the empty list
+        myList1.displayList();
 
-        for (int i = 0; i < 10; i++) {
-            DoubleLinkedListElement el = new DoubleLinkedListElement(Integer.toString(i));
+        // adding 3 elements to the list and display it afterwards
+        myList1.addElement(new Adresse("Linz", "Peter Behrens","12A"));
+        myList1.addElement(new Adresse("Graz", "Grazergasse","1B"));
+        myList1.addElement(new Adresse("Salzburg", "Salzburgerstrasse",""));
+        myList1.displayList();
 
-            end.prev.next  = el;
-            el.next = end;
-            end.prev = el;
-            el.next = end;
-
-
-
-            
-
-
-
-        }
-
-        DoubleLinkedListElement currentElement= start;
-
-        while (currentElement.next!=start ) {
-
-            System.out.println(currentElement.data);
-            currentElement=currentElement.next;
-        }
+        // get data from index
+        Adresse myAdresse = myList1.getDataFromIndex(0);
+        System.out.println("Data from element nr. 0 is ..."+myAdresse.toString());
+         myAdresse = myList1.getDataFromIndex(1);
+        System.out.println("Data from element nr. 1 is ..."+myAdresse.toString());
+         myAdresse = myList1.getDataFromIndex(2);
+        System.out.println("Data from element nr. 2 is ..."+myAdresse.toString());
     }
 }
